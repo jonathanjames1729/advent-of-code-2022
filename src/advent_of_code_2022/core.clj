@@ -1,6 +1,11 @@
 (ns advent-of-code-2022.core
-  (:gen-class))
+  (:gen-class)
+  (:require [advent-of-code-2022.one :as one]))
 
 (defn -main
   "Advent of Code 2022"
-  [& args])
+  [& args]
+  (case (first args)
+    "1" (println
+         "First:" one/first-result
+         "Second:" one/second-result)))
