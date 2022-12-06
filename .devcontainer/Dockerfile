@@ -28,8 +28,7 @@ RUN set -eux; \
     gpgconf --kill all && \
     rm -rf "$GNUPGHOME" "leiningen-${LEIN_VERSION}-standalone.jar.asc" && \
     mkdir -p /usr/share/java && \
-    mv "leiningen-${LEIN_VERSION}-standalone.jar" "/usr/share/java/leiningen-${LEIN_VERSION}-standalone.jar" && \
-    apt-get purge -y --auto-remove gnupg wget
+    mv "leiningen-${LEIN_VERSION}-standalone.jar" "/usr/share/java/leiningen-${LEIN_VERSION}-standalone.jar"
 
 ENV LEIN_ROOT 1
 
