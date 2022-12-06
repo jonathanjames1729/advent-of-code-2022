@@ -1,9 +1,10 @@
 (ns advent-of-code-2022.one
   (:require [clojure.string :as str]))
 
-(def data (str/split-lines (slurp "resources/one.txt")))
+(def ^:private data
+  (str/split-lines (slurp "resources/one.txt")))
 
-(def totals
+(def ^:private totals
   (reduce (fn [[head & tail] x] 
             (if (empty? x) 
               (list* 0 head tail)

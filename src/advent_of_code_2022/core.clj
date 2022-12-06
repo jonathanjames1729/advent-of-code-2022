@@ -6,7 +6,7 @@
             [advent-of-code-2022.four :as four]
             [clojure.string :as str]))
 
-(defn run
+(defn- run
   [n]
   (let [[x y] (case n
                 1 (list one/first-result one/second-result)

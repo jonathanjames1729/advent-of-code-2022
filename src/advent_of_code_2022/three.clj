@@ -1,9 +1,10 @@
 (ns advent-of-code-2022.three
   (:require [clojure.string :as str]))
 
-(def data (str/split-lines (slurp "resources/three.txt")))
+(def ^:private data
+  (str/split-lines (slurp "resources/three.txt")))
 
-(defn score
+(defn- score
   [char]
   (let [code (int char)]
     (if (> code 96) (- code 96) (+ (- code 64) 26))))
