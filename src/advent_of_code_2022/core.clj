@@ -4,7 +4,8 @@
             [advent-of-code-2022.two :as two]
             [advent-of-code-2022.three :as three]
             [advent-of-code-2022.four :as four]
-            [advent-of-code-2022.five :as five]
+            [advent-of-code-2022.five :as five] 
+            [advent-of-code-2022.six :as six]
             [clojure.string :as str]))
 
 (defn- run
@@ -15,6 +16,7 @@
                 3 (list (str three/first-result) (str three/second-result))
                 4 (list (str four/first-result) (str four/second-result))
                 5 (list five/first-result five/second-result)
+                6 (list (str six/first-result) (str six/second-result))
                 (list "" ""))]
     (format "%3d. First: %9s  Second: %9s" n x y)))
 
