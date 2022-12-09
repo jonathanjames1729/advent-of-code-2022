@@ -6,7 +6,8 @@
             [advent-of-code-2022.four :as four]
             [advent-of-code-2022.five :as five] 
             [advent-of-code-2022.six :as six] 
-            [advent-of-code-2022.seven :as seven]
+            [advent-of-code-2022.seven :as seven] 
+            [advent-of-code-2022.eight :as eight]
             [clojure.string :as str]))
 
 (defn- get-results
@@ -19,6 +20,7 @@
     5 (list five/first-result five/second-result)
     6 (list (str six/first-result) (str six/second-result))
     7 (list (str seven/first-result) (str seven/second-result))
+    8 (list (str eight/first-result) (str eight/second-result))
     (list "" "")))
 
 (defn- run
@@ -31,5 +33,5 @@
   [& args]
   (let [day (if (empty? args) 0 (Integer/parseInt (first args)))]
     (println (if (< day 1) 
-               (str/join "\n" (map run (range 1 8)))
+               (str/join "\n" (map run (range 1 9)))
                (run day)))))
