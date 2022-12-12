@@ -4,11 +4,22 @@
             [advent-of-code-2022.two :as two]
             [advent-of-code-2022.three :as three]
             [advent-of-code-2022.four :as four]
-            [advent-of-code-2022.five :as five] 
-            [advent-of-code-2022.six :as six] 
-            [advent-of-code-2022.seven :as seven] 
+            [advent-of-code-2022.five :as five]
+            [advent-of-code-2022.six :as six]
+            [advent-of-code-2022.seven :as seven]
             [advent-of-code-2022.eight :as eight]
+            [advent-of-code-2022.nine :as nine]
+            [advent-of-code-2022.ten :as ten]
             [clojure.string :as str]))
+
+(def ^:private format-ten
+  (->> ten/second-result
+       str/split-lines
+       (concat (list (format "%3d. First: %9s",
+                             10,
+                             ten/first-result)
+                     "Second:"))
+       (str/join "\n     ")))
 
 (defn- get-results
   [day]
@@ -21,17 +32,21 @@
     6 (list (str six/first-result) (str six/second-result))
     7 (list (str seven/first-result) (str seven/second-result))
     8 (list (str eight/first-result) (str eight/second-result))
+    9 (list (str nine/first-result) (str nine/second-result))
+    10 (list format-ten nil)
     (list "" "")))
 
 (defn- run
   [day]
   (let [[first-result second-result] (get-results day)]
-    (format "%3d. First: %9s  Second: %9s" day first-result second-result)))
+    (if (nil? second-result)
+      first-result
+      (format "%3d. First: %9s  Second: %9s" day first-result second-result))))
 
 (defn -main
   "Advent of Code 2022"
   [& args]
   (let [day (if (empty? args) 0 (Integer/parseInt (first args)))]
     (println (if (< day 1) 
-               (str/join "\n" (map run (range 1 9)))
+               (str/join "\n" (map run (range 1 11)))
                (run day)))))
