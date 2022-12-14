@@ -1,7 +1,7 @@
 (ns advent-of-code-2022.nine
   (:require [clojure.string :as str]))
 
-(def data
+(def ^:private data
   (->> "resources/nine.txt"
        slurp
        str/split-lines

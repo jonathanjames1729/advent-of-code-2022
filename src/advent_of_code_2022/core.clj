@@ -47,7 +47,7 @@
   (let [[first-result second-result] (get-results day)]
     (if (nil? second-result)
       first-result
-      (format "%3d. First: %9s  Second: %9s" day first-result second-result))))
+      (format "%3d. First: %11s  Second: %11s" day first-result second-result))))
 
 (defn -main
   "Advent of Code 2022"
