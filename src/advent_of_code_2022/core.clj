@@ -14,12 +14,13 @@
             [advent-of-code-2022.twelve :as twelve]
             [advent-of-code-2022.thirteen :as thirteen]
             [advent-of-code-2022.fourteen :as fourteen]
+            [advent-of-code-2022.fifteen :as fifteen]
             [clojure.string :as str]))
 
 (def ^:private format-ten
   (->> ten/second-result
        str/split-lines
-       (concat (list (format "%3d. First: %9s",
+       (concat (list (format "%3d. First: %14s",
                              10,
                              ten/first-result)
                      "Second:"))
@@ -42,6 +43,7 @@
     12 (list (str twelve/first-result) (str twelve/second-result))
     13 (list (str thirteen/first-result) (str thirteen/second-result))
     14 (list (str fourteen/first-result) (str fourteen/second-result))
+    15 (list (str fifteen/first-result) (str fifteen/second-result))
     (list "" "")))
 
 (defn- run
@@ -49,12 +51,12 @@
   (let [[first-result second-result] (get-results day)]
     (if (nil? second-result)
       first-result
-      (format "%3d. First: %11s  Second: %11s" day first-result second-result))))
+      (format "%3d. First: %14s  Second: %14s" day first-result second-result))))
 
 (defn -main
   "Advent of Code 2022"
   [& args]
   (let [day (if (empty? args) 0 (Integer/parseInt (first args)))]
     (println (if (< day 1) 
-               (str/join "\n" (map run (range 1 15)))
+               (str/join "\n" (map run (range 1 16)))
                (run day)))))
