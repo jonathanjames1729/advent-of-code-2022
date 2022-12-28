@@ -18,6 +18,7 @@
             [advent-of-code-2022.sixteen :as sixteen]
             [advent-of-code-2022.seventeen :as seventeen]
             [advent-of-code-2022.eighteen :as eighteen]
+            [advent-of-code-2022.nineteen :as nineteen]
             [clojure.string :as str]))
 
 (def ^:private format-ten
@@ -50,6 +51,7 @@
     16 (list (str sixteen/first-result) (str sixteen/second-result))
     17 (list (str seventeen/first-result) (str seventeen/second-result))
     18 (list (str eighteen/first-result) (str eighteen/second-result))
+    19 (list (str nineteen/first-result) (str nineteen/second-result))
     (list "" "")))
 
 (defn- run
@@ -64,5 +66,5 @@
   [& args]
   (let [day (if (empty? args) 0 (Integer/parseInt (first args)))]
     (println (if (< day 1) 
-               (str/join "\n" (map run (range 1 19)))
+               (str/join "\n" (map run (range 1 20)))
                (run day)))))
