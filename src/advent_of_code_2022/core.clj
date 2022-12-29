@@ -30,14 +30,14 @@
 (def ^:private format-ten
   (->> ten/second-result
        str/split-lines
-       (concat (list (format "%3d. First: %14s"
+       (concat (list (format "%3d. First: %15s"
                              10
                              ten/first-result)
                      "Second:"))
        (str/join "\n     ")))
 
 (def ^:private format-twenty-five
-  (format "%3d. %21s" 25 twenty_five/first-result))
+  (format "%3d. %22s" 25 twenty_five/first-result))
 
 (defn- get-results
   [day]
@@ -74,7 +74,7 @@
   (let [[first-result second-result] (get-results day)]
     (if (nil? second-result)
       first-result
-      (format "%3d. First: %14s  Second: %14s" day first-result second-result))))
+      (format "%3d. First: %15s  Second: %15s" day first-result second-result))))
 
 (defn -main
   "Advent of Code 2022"
